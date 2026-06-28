@@ -48,7 +48,7 @@ export function ModelPreviewPanel({
   return (
     <div
       className={cn(
-        "z-[60] w-72 rounded-xl border bg-popover p-4 text-popover-foreground shadow-lg ring-1 ring-foreground/10",
+        "z-[60] w-72 rounded-lg bg-popover p-4 text-popover-foreground shadow-lg outline-hidden ring-1 ring-foreground/10",
         className
       )}
       data-model-preview-panel
