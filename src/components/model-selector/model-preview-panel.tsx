@@ -86,12 +86,26 @@ export function ModelPreviewPanel({
 
         <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3">
           <ModelMetricsBar
+            animationKey={modelId}
             label="Intelligence"
             value={model.metrics.intelligence}
           />
-          <ModelMetricsBar label="Speed" value={model.metrics.speed} />
-          <ModelMetricsBar label="Context" value={model.metrics.context} />
-          <ModelMetricsBar label="Cost" value={model.metrics.cost} />
+          <ModelMetricsBar
+            animationKey={modelId}
+            label="Speed"
+            value={model.metrics.speed}
+          />
+          <ModelMetricsBar
+            animationKey={modelId}
+            label="Context"
+            value={model.metrics.context}
+          />
+          <ModelMetricsBar
+            animationKey={modelId}
+            label="Cost"
+            value={model.metrics.cost}
+            variant="cost"
+          />
         </div>
       </div>
 
