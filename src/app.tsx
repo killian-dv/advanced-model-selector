@@ -1,7 +1,7 @@
-import { SendIcon } from "lucide-react";
-import { useState } from "react";
 import { ModelSelector } from "@/components/model-selector/model-selector";
 import { DEFAULT_MODEL_ID } from "@/lib/models";
+import { SendIcon } from "lucide-react";
+import { useState } from "react";
 import {
   InputGroup,
   InputGroupButton,
@@ -17,7 +17,7 @@ function App() {
       <div className="w-full max-w-md">
         <InputGroup className="bg-input-background">
           <InputGroupTextarea
-            className="min-h-[100px] placeholder:font-medium"
+            className="min-h-[70px] placeholder:font-medium"
             placeholder="What do you want to do?"
           />
           <InputGroupToolbar align="block-end">
