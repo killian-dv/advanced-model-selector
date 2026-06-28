@@ -84,14 +84,14 @@ export function ModelPreviewPanel({
           {model.description}
         </p>
 
-        <div className="mt-4 space-y-2">
+        <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3">
           <ModelMetricsBar
             label="Intelligence"
             value={model.metrics.intelligence}
           />
           <ModelMetricsBar label="Speed" value={model.metrics.speed} />
           <ModelMetricsBar label="Context" value={model.metrics.context} />
-          <ModelMetricsBar label="Cost" showInfo value={model.metrics.cost} />
+          <ModelMetricsBar label="Cost" value={model.metrics.cost} />
         </div>
       </div>
 
