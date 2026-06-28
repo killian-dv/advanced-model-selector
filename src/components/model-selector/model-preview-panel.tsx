@@ -2,6 +2,7 @@ import type { CSSProperties, HTMLAttributes, Ref } from "react";
 import { Separator } from "@/components/ui/separator";
 import {
   getModelById,
+  type ModelMetrics,
   type ModelSettings,
   type ReasoningLevel,
   type SpeedMode,
@@ -30,6 +31,17 @@ const REASONING_OPTIONS: { label: string; value: ReasoningLevel }[] = [
 const SPEED_OPTIONS: { label: string; value: SpeedMode }[] = [
   { label: "Standard", value: "standard" },
   { label: "Fast", value: "fast" },
+];
+
+const METRIC_ITEMS: {
+  key: keyof ModelMetrics;
+  label: string;
+  variant?: "cost";
+}[] = [
+  { key: "intelligence", label: "Intelligence" },
+  { key: "speed", label: "Speed" },
+  { key: "context", label: "Context" },
+  { key: "cost", label: "Cost", variant: "cost" },
 ];
 
 export function ModelPreviewPanel({
@@ -85,27 +97,15 @@ export function ModelPreviewPanel({
         </p>
 
         <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3">
-          <ModelMetricsBar
-            animationKey={modelId}
-            label="Intelligence"
-            value={model.metrics.intelligence}
-          />
-          <ModelMetricsBar
-            animationKey={modelId}
-            label="Speed"
-            value={model.metrics.speed}
-          />
-          <ModelMetricsBar
-            animationKey={modelId}
-            label="Context"
-            value={model.metrics.context}
-          />
-          <ModelMetricsBar
-            animationKey={modelId}
-            label="Cost"
-            value={model.metrics.cost}
-            variant="cost"
-          />
+          {METRIC_ITEMS.map(({ key, label, variant }) => (
+            <ModelMetricsBar
+              key={key}
+              label={label}
+              resetKey={modelId}
+              value={model.metrics[key]}
+              variant={variant}
+            />
+          ))}
         </div>
       </div>
 
