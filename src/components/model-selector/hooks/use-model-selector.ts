@@ -186,6 +186,7 @@ export function useModelSelector({
   return {
     closeMenu,
     filteredModels,
+    getSettings,
     handleClearHighlight,
     handleHighlight,
     handleOpenChange,

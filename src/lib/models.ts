@@ -8,13 +8,13 @@ export interface ModelMetrics {
   speed: number;
 }
 
-export interface ModelBadge {
-  label: string;
-  variant: "high" | "fast";
+export interface ModelCapabilities {
+  reasoning: boolean;
+  speed: boolean;
 }
 
 export interface Model {
-  badge?: ModelBadge;
+  capabilities: ModelCapabilities;
   defaultReasoning: ReasoningLevel;
   defaultSpeed: SpeedMode;
   description: string;
@@ -39,7 +39,7 @@ export const MODELS: Model[] = [
     description:
       "Anthropic's most capable model for complex reasoning, nuanced writing, and multi-step tasks.",
     metrics: { intelligence: 5, speed: 3, context: 5, cost: 2 },
-    badge: { label: "High", variant: "high" },
+    capabilities: { reasoning: true, speed: false },
     defaultReasoning: "high",
     defaultSpeed: "standard",
   },
@@ -51,6 +51,7 @@ export const MODELS: Model[] = [
     description:
       "OpenAI's flagship model with strong general intelligence and broad tool use.",
     metrics: { intelligence: 5, speed: 4, context: 4, cost: 3 },
+    capabilities: { reasoning: true, speed: true },
     defaultReasoning: "high",
     defaultSpeed: "standard",
   },
@@ -62,7 +63,7 @@ export const MODELS: Model[] = [
     description:
       "Google's fast multimodal model optimized for low latency and high throughput.",
     metrics: { intelligence: 4, speed: 5, context: 4, cost: 4 },
-    badge: { label: "Fast", variant: "fast" },
+    capabilities: { reasoning: false, speed: true },
     defaultReasoning: "medium",
     defaultSpeed: "fast",
   },
@@ -74,7 +75,7 @@ export const MODELS: Model[] = [
     description:
       "A lightweight Anthropic model tuned for speed while keeping solid reasoning quality.",
     metrics: { intelligence: 3, speed: 5, context: 3, cost: 5 },
-    badge: { label: "Fast", variant: "fast" },
+    capabilities: { reasoning: false, speed: true },
     defaultReasoning: "low",
     defaultSpeed: "fast",
   },
@@ -86,6 +87,7 @@ export const MODELS: Model[] = [
     description:
       "A cost-efficient OpenAI model for everyday tasks, drafts, and quick iterations.",
     metrics: { intelligence: 3, speed: 4, context: 3, cost: 5 },
+    capabilities: { reasoning: true, speed: true },
     defaultReasoning: "medium",
     defaultSpeed: "standard",
   },
@@ -97,7 +99,7 @@ export const MODELS: Model[] = [
     description:
       "Google's pro-tier model with extended context and strong analytical performance.",
     metrics: { intelligence: 5, speed: 3, context: 5, cost: 2 },
-    badge: { label: "High", variant: "high" },
+    capabilities: { reasoning: true, speed: false },
     defaultReasoning: "high",
     defaultSpeed: "standard",
   },
@@ -109,6 +111,7 @@ export const MODELS: Model[] = [
     description:
       "A balanced Anthropic model that pairs strong reasoning with responsive latency for daily work.",
     metrics: { intelligence: 4, speed: 4, context: 4, cost: 3 },
+    capabilities: { reasoning: true, speed: true },
     defaultReasoning: "medium",
     defaultSpeed: "standard",
   },
@@ -120,7 +123,7 @@ export const MODELS: Model[] = [
     description:
       "Anthropic's deepest reasoning model for research, architecture, and long-form analysis.",
     metrics: { intelligence: 5, speed: 2, context: 5, cost: 1 },
-    badge: { label: "High", variant: "high" },
+    capabilities: { reasoning: true, speed: false },
     defaultReasoning: "high",
     defaultSpeed: "standard",
   },
@@ -132,7 +135,7 @@ export const MODELS: Model[] = [
     description:
       "OpenAI's reasoning-first model built for math, code, and multi-step problem solving.",
     metrics: { intelligence: 5, speed: 2, context: 4, cost: 2 },
-    badge: { label: "High", variant: "high" },
+    capabilities: { reasoning: true, speed: false },
     defaultReasoning: "high",
     defaultSpeed: "standard",
   },
@@ -144,7 +147,7 @@ export const MODELS: Model[] = [
     description:
       "A compact OpenAI reasoning model with lower latency for interactive agent workflows.",
     metrics: { intelligence: 4, speed: 4, context: 3, cost: 4 },
-    badge: { label: "Fast", variant: "fast" },
+    capabilities: { reasoning: true, speed: true },
     defaultReasoning: "medium",
     defaultSpeed: "fast",
   },
@@ -156,7 +159,7 @@ export const MODELS: Model[] = [
     description:
       "OpenAI's smallest GPT-5 variant, optimized for high-volume lightweight tasks.",
     metrics: { intelligence: 2, speed: 5, context: 2, cost: 5 },
-    badge: { label: "Fast", variant: "fast" },
+    capabilities: { reasoning: false, speed: true },
     defaultReasoning: "low",
     defaultSpeed: "fast",
   },
@@ -168,6 +171,7 @@ export const MODELS: Model[] = [
     description:
       "Google's previous-generation pro model with reliable multimodal understanding.",
     metrics: { intelligence: 4, speed: 3, context: 5, cost: 3 },
+    capabilities: { reasoning: true, speed: false },
     defaultReasoning: "high",
     defaultSpeed: "standard",
   },
@@ -179,7 +183,7 @@ export const MODELS: Model[] = [
     description:
       "A speed-focused Google model for chat, summarization, and rapid prototyping.",
     metrics: { intelligence: 3, speed: 5, context: 3, cost: 5 },
-    badge: { label: "Fast", variant: "fast" },
+    capabilities: { reasoning: false, speed: true },
     defaultReasoning: "low",
     defaultSpeed: "fast",
   },

@@ -27,6 +27,7 @@ export function ModelSelector(props: ModelSelectorProps) {
     searchInputRef,
     menuRef,
     filteredModels,
+    getSettings,
     highlightedId,
     preview,
     handleHighlight,
@@ -71,6 +72,7 @@ export function ModelSelector(props: ModelSelectorProps) {
           <div ref={menuRef}>
             <ModelList
               activeReferenceProps={preview.referenceProps}
+              getSettings={getSettings}
               highlightedId={highlightedId}
               models={filteredModels}
               onClearHighlight={handleClearHighlight}

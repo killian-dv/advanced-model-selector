@@ -1,6 +1,6 @@
 import type { HTMLAttributes, RefObject } from "react";
 import { useId, useRef } from "react";
-import type { Model } from "@/lib/models";
+import type { Model, ModelSettings } from "@/lib/models";
 import { useHidePreviewOffscreen } from "./hooks/use-hide-preview-offscreen";
 import { useModelListNavigation } from "./hooks/use-model-list-navigation";
 import { ModelListBox } from "./model-list-box";
@@ -10,6 +10,7 @@ import { ModelListSearch } from "./model-list-search";
 
 export interface ModelListProps {
   activeReferenceProps?: HTMLAttributes<HTMLButtonElement>;
+  getSettings: (modelId: string) => ModelSettings;
   highlightedId: string | null;
   models: Model[];
   onClearHighlight: () => void;
@@ -27,6 +28,7 @@ export function ModelList({
   query,
   selectedId,
   highlightedId,
+  getSettings,
   onSelect,
   onQueryChange,
   onHighlight,
@@ -89,6 +91,7 @@ export function ModelList({
               onSelect={() => {
                 onSelect(model.id);
               }}
+              settings={getSettings(model.id)}
             />
           ))
         )}

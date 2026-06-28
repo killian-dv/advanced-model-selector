@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from "react";
-import type { Model } from "@/lib/models";
+import type { Model, ModelSettings } from "@/lib/models";
 import { cn } from "@/lib/utils";
-import { ModelListBadge } from "./model-list-badge";
+import { ModelListBadges } from "./model-setting-badge";
 import { ProviderIcon } from "./provider-icon";
 
 export interface ModelListItemProps {
@@ -13,10 +13,12 @@ export interface ModelListItemProps {
   model: Model;
   onMouseEnter: (element: HTMLElement) => void;
   onSelect: () => void;
+  settings: ModelSettings;
 }
 
 export function ModelListItem({
   model,
+  settings,
   isHighlighted,
   isSelected,
   onSelect,
@@ -44,16 +46,24 @@ export function ModelListItem({
       type="button"
       {...(isHighlighted ? activeReferenceProps : {})}
     >
-      <ModelListItemContent model={model} />
-      <ModelListBadge model={model} />
+      <ModelListItemContent model={model} settings={settings} />
     </button>
   );
 }
 
-function ModelListItemContent({ model }: { model: Model }) {
+function ModelListItemContent({
+  model,
+  settings,
+}: {
+  model: Model;
+  settings: ModelSettings;
+}) {
   return (
     <div className="min-w-0 flex-1">
-      <div className="font-medium text-sm">{model.name}</div>
+      <div className="flex items-start justify-between gap-2">
+        <div className="font-medium text-sm">{model.name}</div>
+        <ModelListBadges model={model} settings={settings} />
+      </div>
       <div className="mt-0.5 flex items-center gap-1.5 text-muted-foreground text-sm">
         <ProviderIcon providerKey={model.providerKey} />
         <span>{model.provider}</span>
