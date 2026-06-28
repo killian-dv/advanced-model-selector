@@ -40,6 +40,9 @@
   --color-foreground: var(--foreground);
   --color-background: var(--background);
   --color-input-background: var(--input-background);
+  --color-model-selector-badge: var(--model-selector-badge);
+  --color-model-selector-hover: var(--model-selector-hover);
+  --color-model-selector-selected: var(--model-selector-selected);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -57,6 +60,9 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --input-background: oklch(1 0 0);
+  --model-selector-hover: oklch(0.978 0 0);
+  --model-selector-selected: oklch(0.952 0 0);
+  --model-selector-badge: oklch(0.946 0.004 50);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
@@ -93,6 +99,9 @@
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
   --input-background: oklch(0.145 0 0);
+  --model-selector-hover: oklch(0.26 0 0);
+  --model-selector-selected: oklch(0.3 0 0);
+  --model-selector-badge: oklch(0.28 0.004 50);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);

@@ -70,6 +70,21 @@ function InputGroupAddon({
   );
 }
 
+function InputGroupToolbar({
+  className,
+  align = "inline-start",
+  ...props
+}: React.ComponentProps<"div"> & VariantProps<typeof inputGroupAddonVariants>) {
+  return (
+    <div
+      className={cn(inputGroupAddonVariants({ align }), className)}
+      data-align={align}
+      data-slot="input-group-toolbar"
+      {...props}
+    />
+  );
+}
+
 const inputGroupButtonVariants = cva(
   "flex items-center gap-2 text-sm shadow-none",
   {
@@ -160,4 +175,5 @@ export {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
+  InputGroupToolbar,
 };
